@@ -65,3 +65,17 @@ var numArray = {
 for (var key in numArray) {
 	document.writeln(numArray[key]);
 };
+
+/* 関数宣言の前でも後でもよし */
+/*sample();*/
+/* 関数 */
+/*function sample() {
+	document.writeln("sample");
+}*/
+
+/* 戻り値 */
+function sample() {
+	return "SAMPLE";
+}
+var result = sample();
+document.writeln(result);
