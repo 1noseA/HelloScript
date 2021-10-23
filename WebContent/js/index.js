@@ -41,12 +41,27 @@ var week = {
 };
 document.writeln(week.Mon);
 
-var result = prompt("数字を入力してください", "");
+/*var result = prompt("数字を入力してください", "");*/
 /* evalで数値にする */
 /*document.writeln(eval(result) + 1);*/
 
-if (eval(result) % 2 == 0) {
+/*if (eval(result) % 2 == 0) {
 	document.writeln("偶数");
 } else {
 	document.writeln("奇数");
+}*/
+
+var num = [1,2,3,4,5];
+for (var i = 0; i < num.length; i++) {
+	document.writeln(num[i]);
 }
+
+/* 連想配列は別 */
+var numArray = {
+	a: "A",
+	b: "B",
+	c: "C"
+};
+for (var key in numArray) {
+	document.writeln(numArray[key]);
+};
