@@ -85,10 +85,20 @@ window.onload = function() {
 	/* 読み込まれているか確認用 */
 	/*alert("hello");*/
 	/* そのページの中のidを取り出す */
-	var btn = document.getElementById("btn");
+	/*var btn = document.getElementById("btn");*/
+	/* 一意のidつける方がいい */
+	var list = document.getElementsByTagName("li");
+	/*var btn = document.getElementByTagetElementsByClassName("btn");*/
 	/* 「sample()」とすると実行されてしまう。関数の名前だけ書く */
-	btn.onclick = sample;
+	/*btn.onclick = sample;*/
+	/*alert(list.length);*/
+	for (var i = 0; i < list.length; i++) {
+		/* listの中身がそのまま取れる */
+		/*alert(list.item(i).innerHTML);*/
+		alert(list.item(i).firstChild.nodeValue);
+		/*alert(list.item(i).parentNode.tagName);*/
+	}
 }
-function sample() {
+/*function sample() {
 	document.writeln("hello.");
-}
+}*/
