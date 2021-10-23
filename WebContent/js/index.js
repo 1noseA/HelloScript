@@ -40,3 +40,13 @@ var week = {
 	Tue: "Tuesday"
 };
 document.writeln(week.Mon);
+
+var result = prompt("数字を入力してください", "");
+/* evalで数値にする */
+/*document.writeln(eval(result) + 1);*/
+
+if (eval(result) % 2 == 0) {
+	document.writeln("偶数");
+} else {
+	document.writeln("奇数");
+}
