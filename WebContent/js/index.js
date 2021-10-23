@@ -80,6 +80,15 @@ for (var key in numArray) {
 var result = sample();
 document.writeln(result);*/
 
+/* コールバック関数 */
+window.onload = function() {
+	/* 読み込まれているか確認用 */
+	/*alert("hello");*/
+	/* そのページの中のidを取り出す */
+	var btn = document.getElementById("btn");
+	/* 「sample()」とすると実行されてしまう。関数の名前だけ書く */
+	btn.onclick = sample;
+}
 function sample() {
 	document.writeln("hello.");
 }
