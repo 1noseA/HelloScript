@@ -2,6 +2,7 @@ package com.sample;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -15,6 +16,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import com.google.gson.Gson;
 import com.sample.dao.EmpDao;
 
 /**
@@ -45,7 +47,11 @@ public class SampleSevlet extends HttpServlet {
 		EmpDao dao = session.getMapper(EmpDao.class);
 
 		List<Employee> list = dao.findAll();
-		System.out.println(list.size());
+
+		Gson gson = new Gson();
+		PrintWriter out = response.getWriter();
+		out.println(gson.toJson(list));
+		out.flush();
 
 	}
 
