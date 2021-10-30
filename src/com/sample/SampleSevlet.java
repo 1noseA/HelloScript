@@ -59,8 +59,22 @@ public class SampleSevlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+
+		String resource = "config.xml";
+		InputStream inputStream = Resources.getResourceAsStream(resource);
+		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+
+		SqlSession session = sqlSessionFactory.openSession();
+		EmpDao dao = session.getMapper(EmpDao.class);
+
+		int empno = Integer.parseInt(request.getParameter("empno"));
+		Employee emp = dao.findByPrimaryKey(empno);
+
+		Gson gson = new Gson();
+		PrintWriter out = response.getWriter();
+		out.println(gson.toJson(emp));
+		out.flush();
+
 	}
 
 }

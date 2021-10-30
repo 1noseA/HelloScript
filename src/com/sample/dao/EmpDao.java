@@ -13,4 +13,8 @@ public interface EmpDao {
 	@Select("select * from employee")
 	public List<Employee> findAll();
 
+	@ResultMap("empResult")
+	@Select("select * from employee where empno = #{empno}")
+	public Employee findByPrimaryKey(int empno);
+
 }
