@@ -1,10 +1,13 @@
 window.onload = function() {
-	var createLink = document.getElementById("create");
-	var list = document.getElementById("list");
-	createLink.onclick = function() {
-		var text = document.createTextNode("hoge");
-		var li = document.createElement("li");
-		li.appendChild(text);
-		list.appendChild(li);
+	var updateLink = document.getElementById("update");
+	var target = document.getElementById("data1");
+	updateLink.onclick = function() {
+		var text = target.innerHTML;
+		var textBox = document.createElement("input");
+		textBox.setAttribute("type", "text");
+		textBox.setAttribute("value", text);
+
+		var parent = target.parentNode;
+		parent.replaceChild(textBox, target);
 	}
 }
